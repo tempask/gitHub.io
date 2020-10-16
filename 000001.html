@@ -1,0 +1,55 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gbk" />
+<title>网页下载器</title>
+</head>
+<body>
+<div>
+			一个下载文本类网页的工具软件，命令行工具，相关命令格式如下<br />
+<br />
+dlpages　 配置文件　　url　　 输出文件名<br />
+<br />
+url　　　　 待下载的索引页地址，支持起点、17k、新浪什么的，当前只支持单层下载（两层或更多的不支持）<br />
+<br />
+输出单一文本文件，编码是 utf8 编码，支持将输出转换成 gbk 编码，用如下命令：<br />
+<br />
+dlpages　 -c　　输入文件名　　输出文件名<br />
+<br />
+目前我只是在 win7 、linux （32/64）上测试过。不支持 WinXP（rust 语言<br />
+的问题）。<br />
+<br />
+配置文件格式说明：<br />
+<br />
+[main]　　　　　　　　　　　; 主要配置项<br />
+threadnum=20　　　　 ; 必须有的设置项，线程数<br />
+;outurl=1　　　　　　　　　; 可选项，用于指定输出的文件中是否包括相应 url<br />
+;outnum=2　　　　　　　 ; 可选项，输出页面数<br />
+;startpos=3　　　　　　　 ; 可选项，输出的起始位置（就是匹配上的 url 中从第几个开始输出）<br />
+<br />
+[patt]　　　　　　　　　　　　; url 特征设置，格式是 域名=特征，特征是正则表达式<br />
+www.xuanshu.com="^\\d*.html$"<br />
+<br />
+[del]　　　　　　　　　　　　　; 输出的文本中需要删除的可以在这配置，格式是 域名=特征，特征匹配上的会被删除上<br />
+www.piaotian.com="重要声明：[\\s\\S]*"<br />
+<br />
+[invalid]　　　　　　　　　　;　输出 串中的特定特征，当匹配上时将忽略相关
+url，格式：域名=特征，匹配上相关的特征会被忽略掉<br />
+www.17k.com=" vip"　 ; http://www.17k.com/list/192453.html<br />
+<div><br /></DIV>
+<div>正则如何编写可以自行在网上搜索到。<br /></DIV>
+缘由：用网上“小爬虫”的“通用章节小说下载器”不大好用，因此就自己做了一个类似的，正好练练 rust。<br />
+<br />
+win32版　　　<a HREF="https://pan.baidu.com/s/1SC6SCadvspjyNt0QNhv7-A" TARGET="_blank">https://pan.baidu.com/s/1SC6SCadvspjyNt0QNhv7-A</A><br />
+<div>win64版　　　<a HREF="https://pan.baidu.com/s/11lo7UgVsPHZactZHdk9QCw" TARGET="_blank">https://pan.baidu.com/s/11lo7UgVsPHZactZHdk9QCw</A></DIV>
+<div>
+mac64版&nbsp;<wbr>&nbsp;<wbr>&nbsp;<wbr>&nbsp;<wbr>&nbsp;<wbr>&nbsp;<wbr>&nbsp;<wbr>&nbsp;<wbr>
+<a HREF="https://pan.baidu.com/s/1Ej2zLJHJdUa9GwGGxeU-EA" TARGET="_blank">https://pan.baidu.com/s/1Ej2zLJHJdUa9GwGGxeU-EA</A></DIV>
+linux(包括32，64)　　　　　 <a HREF="https://pan.baidu.com/s/1HK_vVNtxwt8AEtxi0cD-PQ" TARGET="_blank">https://pan.baidu.com/s/1HK_vVNtxwt8AEtxi0cD-PQ</A><br />
+配置文件　　　　　　<a HREF="https://pan.baidu.com/s/1ZfsvXRarQtkKMGnVZrPCVA" TARGET="_blank">https://pan.baidu.com/s/1ZfsvXRarQtkKMGnVZrPCVA</A><br />
+<br />							
+<p>2020.10.16<br>因为原始版本在网络链接不是很稳定的情况下会有问题，可能只成功下载了部分章节，然后再重试时添加了个选项 lackmax，当它等于 0 时和原始的版本一样（始终删除临时文件，进行合并生成最终版本），当它 &gt;0 时只有当生成的文件数目和探查到的数据差值小于这个值是才进行最终临时文件合并。另外还改了下别的小地，配置里添加了些新的网站。因环境限制，只生成了两个版本的可执行文件</p>
+<p>1.01 版<br>win64 <a href="https://pan.baidu.com/s/1ECuezm4xAZzT6mDAgv58FQ" rel="nofollow">https://pan.baidu.com/s/1ECuezm4xAZzT6mDAgv58FQ</a> 提取码：l47y<br>linux32 <a href="https://pan.baidu.com/s/1Ao32BwIfEgIQDc5XMsRXhw" rel="nofollow">https://pan.baidu.com/s/1Ao32BwIfEgIQDc5XMsRXhw</a> 提取码：pbdg<br>配置文件 <a href="https://pan.baidu.com/s/1OFnnQn_MDBcpDzwladvCWg" rel="nofollow">https://pan.baidu.com/s/1OFnnQn_MDBcpDzwladvCWg</a> 提取码：pquo</p>
+		</div>
+</body>
+</html>
